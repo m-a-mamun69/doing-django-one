@@ -2,3 +2,11 @@
 {% include 'base.html' %}
 
 <h2>This is Our Website...!!!</h2>
+
+{% for cl in client %}
+    <p>{{ cl.id }}</p>
+    <p>{{ cl.name }}</p>
+    <p>{{ cl.profession }}</p>
+    <br>
+
+{% endfor %}

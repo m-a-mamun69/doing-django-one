@@ -4,7 +4,30 @@ from django.shortcuts import render
 # Create your views here.
 
 def home(request):
-    return render(request, 'index.html')
+    
+    clientlist = [
+        {
+            'id': '1',
+            'name': 'Mamun Rashid',
+            'profession' : 'Student'
+        },
+
+        {
+            'id': '2',
+            'name': 'Rony Reza',
+            'profession' : 'Medicin Promotion Officer'
+        },
+
+        {
+            'id': '3',
+            'name': 'Milton',
+            'profession' : 'HR'
+        },
+    ]
+
+    context = {'client': clientlist}
+
+    return render(request, 'index.html', context=context)
 
 
 def register(request):
