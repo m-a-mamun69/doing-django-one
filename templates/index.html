@@ -3,10 +3,10 @@
 
 <h2>This is Our Website...!!!</h2>
 
-{% for cl in client %}
-    <p>{{ cl.id }}</p>
-    <p>{{ cl.name }}</p>
-    <p>{{ cl.profession }}</p>
+{% for task in tasks %}
     <br>
-
+    <p>ID: {{ task.title }}</p>
+    <p>Title: {{ task.title }}</p>
+    <p>Content: {{ task.content }}</p>
+    <br>
 {% endfor %}
