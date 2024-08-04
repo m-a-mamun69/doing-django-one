@@ -1,15 +1,13 @@
 from django.shortcuts import render
-# from django.http import HttpResponse
+from django.http import HttpResponse
 from .models import Task
 from .forms import TaskForm
 
 # Create your views here.
 
 def home(request):
-    queryAllData = Task.objects.all()
-    context = {'tasks': queryAllData}
 
-    return render(request, 'index.html', context)
+    return render(request, 'index.html')
 
 
 def register(request):
@@ -21,8 +19,13 @@ def my_login(request):
 
 
 def createTask(request):
-
     form = TaskForm()
-    context = {'form':form}
+    if request.method == 'POST':
+        
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('Your task was Created!')
 
-    return render(request, 'task-form.html', context=context)
+    context = {'from':form}
+    return render(request, 'create-task.html', context=context)
