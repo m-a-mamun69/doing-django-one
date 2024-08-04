@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Task
-from .forms import TaskForm
+from .forms import InputForm
+# from .forms import TaskForm
 
 # Create your views here.
 
@@ -19,13 +20,17 @@ def my_login(request):
 
 
 def createTask(request):
-    form = TaskForm()
-    if request.method == 'POST':
-        
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponse('Your task was Created!')
+    context ={}
+    context['form']= InputForm()
+    return render(request, "create.html", context)
 
-    context = {'from':form}
-    return render(request, 'create-task.html', context=context)
+    # form = TaskForm()
+    # if request.method == 'POST':
+        
+    #     form = TaskForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         return HttpResponse('Your task was Created!')
+
+    # context = {'from':form}
+    # return render(request, 'create-task.html', context=context)
