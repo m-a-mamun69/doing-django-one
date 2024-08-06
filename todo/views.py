@@ -22,6 +22,12 @@ def my_login(request):
 def createTask(request):
 
     form = TaskForm()
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponse('Your task was Created!')
     context = {'form':form}
     return render(request, "create.html", context=context)
 
