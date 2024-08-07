@@ -1,0 +1,12 @@
+
+{% include 'base.html' %}
+<h2> CRUD - Read All Tasks! </h2>
+
+{% for task in tasks %}
+
+    {{task.title}}
+    <br>
+    {{task.content}}
+    <br><br>
+
+{% endfor %}
