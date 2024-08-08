@@ -9,6 +9,8 @@
     {{task.content}}
     <br>
     <a href="{% url 'update-task' task.id %}">Update Task</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'delete-task' task.id %}">Delete Task</a>
     <br><br>
 
 {% endfor %}
