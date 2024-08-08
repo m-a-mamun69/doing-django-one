@@ -39,3 +39,19 @@ def viewTask(request):
     tasks = Task.objects.all()
     context = {'tasks':tasks}
     return render(request, "view-tasks.html", context=context)
+
+
+# - Update Task
+
+def updateTask(request, pk):
+    task = Task.objects.get(id=pk)
+
+    form = TaskForm(instance=task)
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+
+        if form.is_valid():
+            form.save()
+            return redirect('view-tasks')
+    context = {'form':form}
+    return render(request, "update-task.html", context=context)

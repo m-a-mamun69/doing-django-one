@@ -7,6 +7,8 @@
     {{task.title}}
     <br>
     {{task.content}}
+    <br>
+    <a href="{% url 'update-task' task.id %}">Update Task</a>
     <br><br>
 
 {% endfor %}
