@@ -17,13 +17,16 @@
     <center>
     <h2>This is Our Website...!!!</h2>
 
+    <a href="{% url 'register' %}">Create A User (Registrations)</a>
+    <br><br><br>
+
     <img src="{% static 'images/mamun.jpg' %}" alt="">
     <br><br>
 
     <a href="{% url 'create' %}">Create A Task</a>
     <br><br>
     <a href="{% url 'view-tasks' %}">View Tasks</a>
-    
+
     </center>
 
     <script src="{% static 'js/app.js' %}"></script>

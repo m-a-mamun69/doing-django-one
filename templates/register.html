@@ -2,3 +2,10 @@
 {% include 'base.html' %}
 
 <center><h3>This My Registration Page For this Projects</h3></center>
+
+<form method="POST" autocomplete="off">
+	{% csrf_token %}
+
+	{{form.as_p}}
+	<input type="submit" value="Register">
+</form>
