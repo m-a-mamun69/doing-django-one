@@ -19,7 +19,10 @@ urlpatterns = [
     path('delete-task/<str:pk>/', views.deleteTask, name='delete-task'),
 
         # ---------- Authentications Operations ----------- #
+        # ------------------------------------------------- #
 
     # - Registrations
     path('register/', views.Register, name='register'),
+    # - Login Url
+    path('my-login/', views.my_login, name='my-login'),
 ]

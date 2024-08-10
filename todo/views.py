@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Task
 # from .forms import InputForm
-from .forms import TaskForm, CreateUserForm
+from .forms import TaskForm, CreateUserForm, LoginForm
+from django.contrib.auth.models import auth
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
@@ -81,3 +83,22 @@ def Register(request):
 
     context = {'form':form}
     return render(request, "register.html", context=context)
+
+
+# - For Login A User
+
+def my_login(request):
+    form = LoginForm
+    if request.method == 'POST':
+        form = LoginForm(request, data=request.POST)
+        if form.is_valid():
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                auth.login(request, user)
+                return HttpResponse('You Have Logged In!!.')
+    context = {'form':form}
+    return render(request, "my-login.html", context=context)
