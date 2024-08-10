@@ -99,6 +99,15 @@ def my_login(request):
 
             if user is not None:
                 auth.login(request, user)
-                return HttpResponse('You Have Logged In!!.')
+                return redirect('dashboard')
     context = {'form':form}
     return render(request, "my-login.html", context=context)
+
+
+def user_logout(request):
+    auth.logout(request)
+    return redirect('')
+
+
+def dashboard(request):
+    return render(request, 'dashboard.html')
