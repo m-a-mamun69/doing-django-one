@@ -5,6 +5,7 @@ from .models import Task
 from .forms import TaskForm, CreateUserForm, LoginForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -104,10 +105,14 @@ def my_login(request):
     return render(request, "my-login.html", context=context)
 
 
+# - For Logout A User
+
 def user_logout(request):
     auth.logout(request)
     return redirect('')
 
 
+# - User Dashboard
+@login_required(login_url='my-login')
 def dashboard(request):
     return render(request, 'dashboard.html')
