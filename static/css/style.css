@@ -4,3 +4,8 @@ h2{
 img{
     width: 250px;
 }
+.form-layout {
+    border-radius: 20px;
+    width: 500px;
+    /* Add any other styles you need */
+}
