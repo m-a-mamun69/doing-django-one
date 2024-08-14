@@ -12,19 +12,20 @@
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
+<br>
 	<div class="container bg-white shadow-md p-5 form-layout">
 
 
 	{% include 'base.html' %}
 	<br>
-	<h2>This My Login Page For this Projects</h2><hr>
+	<h2>Login Page</h2><hr>
 	<br>
 
 	<form method="POST" autocomplete="off">
 	{% csrf_token %}
 
-	{{form.as_p|crispy}}
-	<input type="submit" value="Login">
+	{{form|crispy}}
+	<input class="btn btn-primary navbar-btn" type="submit" value="Login">
 	</form>
 	</div>
 </html>
