@@ -15,7 +15,7 @@
 <div class="container bg-white shadow-md p-5 form-layout">
 	{% include 'base.html' %}
 	<br>
-	<h2>This My Registration Page For this Projects</h2><hr>
+	<h2>Registration Form</h2><hr>
 	<br>
 
 <form method="POST" autocomplete="off">
@@ -23,7 +23,7 @@
 	{% csrf_token %}
 
 	{{form|crispy}}
-	<input type="submit" value="Register">
+	<input class="btn btn-primary navbar-btn" type="submit" value="Register">
 </form>
 
 </div>

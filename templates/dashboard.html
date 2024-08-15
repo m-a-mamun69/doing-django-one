@@ -1,4 +1,6 @@
 
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Page</title>
     <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
+<br><br>
 <div class="container bg-white shadow-md p-5 form-layout">
+    
     {% include 'base.html' %}
+    
 
 
-    <h3>This Is Dashboard Page For this Projects</h3><hr>
+    <h3>This Is Dashboard Page </h3><hr>
     <br><br>
     <a href="{% url 'user-logout' %}">For Logout</a>
 
