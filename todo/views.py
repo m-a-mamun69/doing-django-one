@@ -57,4 +57,4 @@ def user_logout(request):
 # - User Dashboard
 @login_required(login_url='my-login')
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    return render(request, 'profile/dashboard.html')
