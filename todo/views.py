@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # from .models import Task
 # from .forms import InputForm
-from .forms import CreateUserForm, LoginForm
+from .forms import CreateUserForm, LoginForm, CreateTaskForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -22,7 +22,7 @@ def Register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse('The User Is Created!!!')
+            return redirect('dashboard')
 
     context = {'form':form}
     return render(request, "register.html", context=context)
@@ -55,6 +55,25 @@ def user_logout(request):
 
 
 # - User Dashboard
+
 @login_required(login_url='my-login')
 def dashboard(request):
     return render(request, 'profile/dashboard.html')
+
+
+# - User Dashboard
+
+@login_required(login_url='my-login')
+def createTask(request):
+    form = CreateTaskForm()
+
+    if request.method == 'POST':
+        form = CreateTaskForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+    
+    context = {'form':form}
+    return render(request, "profile/create-task.html", context=context)
+

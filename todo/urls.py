@@ -17,6 +17,9 @@ urlpatterns = [
 
     # - Logout Url
     path('user-logout/', views.user_logout, name='user-logout'),
+
+    # - Create Task 
+    path('create-task/', views.createTask, name='create-task'),
 ]
 
 

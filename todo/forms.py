@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.forms.widgets import PasswordInput, TextInput
 from django import forms
 
+from . models import Task
+
 
 # creating a form 
 
@@ -20,3 +22,13 @@ class CreateUserForm(UserCreationForm):
 class LoginForm(AuthenticationForm):
 	username = forms.CharField(widget=TextInput())
 	password = forms.CharField(widget=PasswordInput())
+
+
+# - Create a Task
+
+class CreateTaskForm(forms.ModelForm):
+	
+	class Meta:
+		model = Task
+		fields = ['title', 'content',]
+		exclude = ['user',]
