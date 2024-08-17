@@ -20,6 +20,9 @@ urlpatterns = [
 
     # - Create Task 
     path('create-task/', views.createTask, name='create-task'),
+
+    # - Read All Task
+    path('view-tasks/', views.viewTask, name='view-tasks'),
 ]
 
 

@@ -61,7 +61,7 @@ def dashboard(request):
     return render(request, 'profile/dashboard.html')
 
 
-# - User Dashboard
+# - Create A Task
 
 @login_required(login_url='my-login')
 def createTask(request):
@@ -71,9 +71,19 @@ def createTask(request):
         form = CreateTaskForm(request.POST)
         
         if form.is_valid():
-            form.save()
+            task = form.save(commit=False)
+            task.user = request.user
+            task.save()
+            
             return redirect('dashboard')
     
     context = {'form':form}
     return render(request, "profile/create-task.html", context=context)
 
+
+# - View All Tasks
+
+@login_required(login_url='my-login')
+def viewTask(request):
+    # form = CreateTaskForm()
+    pass
