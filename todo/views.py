@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-# from .models import Task
+from .models import Task
 # from .forms import InputForm
 from .forms import CreateUserForm, LoginForm, CreateTaskForm
 from django.contrib.auth.models import auth
@@ -85,5 +85,9 @@ def createTask(request):
 
 @login_required(login_url='my-login')
 def viewTask(request):
-    # form = CreateTaskForm()
-    pass
+
+    current_user = request.user.id
+    task = Task.objects.all().filter(user=current_user)
+    context = {'task':task}
+    return render(request, 'profile/view-tasks.html', context=context)
+
