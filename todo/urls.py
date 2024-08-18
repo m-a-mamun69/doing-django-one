@@ -23,6 +23,9 @@ urlpatterns = [
 
     # - Read All Task
     path('view-tasks/', views.viewTask, name='view-tasks'),
+
+    # - Update Task
+    path('update-task/<str:pk>/', views.updateTask, name='update-task'),
 ]
 
 

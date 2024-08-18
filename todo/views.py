@@ -91,3 +91,22 @@ def viewTask(request):
     context = {'task':task}
     return render(request, 'profile/view-tasks.html', context=context)
 
+
+# - Update Tasks
+
+@login_required(login_url='my-login')
+def updateTask(request, pk):
+    task = Task.objects.get(id=pk)
+    form = CreateTaskForm(instance=task)
+
+    if request.method == 'POST':
+        form = CreateTaskForm(request.POST, instance=task)
+
+        if form.is_valid():
+            form.save()
+            return redirect('view-tasks')
+    
+    context = {'form':form}
+    return render(request, 'profile/update-task.html', context=context)
+
+

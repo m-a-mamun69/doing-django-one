@@ -15,7 +15,7 @@
 <div class="container bg-white shadow-md p-5 form-layout">
 	{% include 'base.html' %}
 	<br>
-	<h2>Create a Task</h2><hr>
+	<h2>Update a Task</h2><hr>
 	<br>
 
 <form method="POST" autocomplete="off">
@@ -26,11 +26,8 @@
 
 	{{form.content|as_crispy_field}}
 	<br>
-	<input class="btn btn-primary navbar-btn" type="submit" value="Create">
+	<input class="btn btn-primary navbar-btn" type="submit" value="Update">
 </form>
 
 </div>
 </html>
-
-
-

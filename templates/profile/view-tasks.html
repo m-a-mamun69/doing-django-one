@@ -26,6 +26,10 @@
         {{tsk.title}}
         <br>
         {{tsk.content}}
+        <br><br>
+        <a href="{% url 'update-task' tsk.id %}">Update Task</a>
+        &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+        <a href="{% url 'view-tasks' %}">Delete Task</a>
         
     </div>
     <br>
