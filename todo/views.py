@@ -110,3 +110,14 @@ def updateTask(request, pk):
     return render(request, 'profile/update-task.html', context=context)
 
 
+# - Delete Tasks
+
+
+def deleteTask(request, pk):
+    task = Task.objects.get(id=pk)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('view-tasks')
+
+    return render(request, 'profile/delete-task.html')
+
