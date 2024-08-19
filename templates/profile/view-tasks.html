@@ -6,30 +6,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Tasks Page</title>
+    <title>View Tasks Page</title>
     <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
-<br><br>
+
 
     
     {% include 'base.html' %}
-    
-    <center> <h3>This Is My Tasks Page</h3> </center>
+    <br>
+    <h3 class="text-center">This Is My Tasks Page</h3>
     <hr>
 
     {% for tsk in task %}
 
-    <div class="container bg-white shadow-md p-5 form-layout" style="margin-top: 20px; ">
+    <div class="container bg-white shadow-md p-5 form-layout" style="margin-top: 30px;">
 
         {{tsk.title}}
         <br>
         {{tsk.content}}
         <br><br>
-        <a href="{% url 'update-task' tsk.id %}">Update Task</a>
+
+        <a class="btn btn-info navbar-btn" type="button" href="{% url 'update-task' tsk.id %}">Update Task</a>
         &nbsp;  &nbsp;  &nbsp;  &nbsp; 
-        <a href="{% url 'delete-task' tsk.id %}">Delete Task</a>
+
+        <a class="btn btn-danger navbar-btn" type="button" href="{% url 'delete-task' tsk.id %}">Delete Task</a>
         
     </div>
     <br>

@@ -11,20 +11,18 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
+
+{% include 'base.html' %}
 <br><br>
 <div class="container bg-white shadow-md p-5 form-layout">
     
-    {% include 'base.html' %}
+    
     
 
 
-    <h3>This Is Dashboard Page </h3><hr>
-    <br><br>
-    <a href="{% url 'create-task' %}">Create Task</a>
-    <br><br>
-    <a href="{% url 'view-tasks' %}">View Tasks</a>
-    <br><br>
-    <a href="{% url 'user-logout' %}">For Logout</a>
+    <h2>Doing To-Do </h2><hr>
+    
+    <p> Welcome, to Doing To-Do <br><br> Your personal task manager Application! </p>
 
 </div>
 
