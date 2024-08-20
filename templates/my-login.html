@@ -12,6 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
+
+{% include 'pre-base.html' %}
 <br>
 	<div class="container bg-white shadow-md p-5 form-layout">
 
@@ -28,6 +30,8 @@
 	{{form.password|as_crispy_field}}
 	<br>
 	<input class="btn btn-primary navbar-btn" type="submit" value="Login">
+	<br><br>
+	<p>Don't, have an account? &nbsp; <a href="{% url 'register' %}"> Register</a></p>
 	</form>
 	</div>
 </html>

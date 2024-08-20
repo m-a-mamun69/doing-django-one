@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
+
+{% include 'pre-base.html' %}
 <br>
 <div class="container bg-white shadow-md p-5 form-layout">
 
@@ -32,6 +34,8 @@
 	<br>
 
 	<input class="btn btn-primary navbar-btn" type="submit" value="Register">
+	<br><br>
+	<p>Already, have an account? &nbsp; <a href="{% url 'my-login' %}"> Login</a></p>
 </form>
 
 </div>
