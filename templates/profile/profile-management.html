@@ -1,0 +1,38 @@
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Profile Management Page</title>
+	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+{% include 'profile/base.html' %}
+<br>
+<h3 class="text-center">This Is My Create Task Page</h3>
+<hr>
+<div class="container bg-white shadow-md p-5 form-layout" style="margin-top: 30px;">
+
+	<h2>Update Your Profile </h2><hr>
+	<br>
+
+<form method="POST" autocomplete="off">
+
+	{% csrf_token %}
+
+	{{user_form.username|as_crispy_field}}
+
+	{{user_form.email|as_crispy_field}}
+	<br>
+	<input class="btn btn-primary navbar-btn" type="submit" value="Update Profile">
+</form>
+
+</div>
+</html>
+
+
+

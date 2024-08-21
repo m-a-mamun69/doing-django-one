@@ -9,6 +9,9 @@ urlpatterns = [
     # - Dashboard Url
     path('dashboard/', views.dashboard, name='dashboard'),
 
+    # - Dashboard Url
+    path('profile-management/', views.profile_management, name='profile-management'),
+
     # - Registrations
     path('register/', views.Register, name='register'),
 

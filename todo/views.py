@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Task
 # from .forms import InputForm
-from .forms import CreateUserForm, LoginForm, CreateTaskForm
+from .forms import CreateUserForm, LoginForm, CreateTaskForm, UpdateUserForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -120,4 +120,23 @@ def deleteTask(request, pk):
         return redirect('view-tasks')
 
     return render(request, 'profile/delete-task.html')
+
+
+
+# - Profile Management
+
+@login_required(login_url='my-login')
+def profile_management(request):
+    
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+
+        if user_form.is_valid():
+            user_form.save()
+            return redirect('dashboard')
+
+    user_form = UpdateUserForm(instance=request.user)
+    context = {'user_form':user_form}
+    return render(request, 'profile/profile-management.html', context=context)
+
 
