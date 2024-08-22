@@ -12,6 +12,9 @@ urlpatterns = [
     # - Dashboard Url
     path('profile-management/', views.profile_management, name='profile-management'),
 
+    # - Dashboard Url
+    path('delete-account/', views.delete_account, name='delete-account'),
+
     # - Registrations
     path('register/', views.Register, name='register'),
 

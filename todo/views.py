@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import Task
 # from .forms import InputForm
 from .forms import CreateUserForm, LoginForm, CreateTaskForm, UpdateUserForm
-from django.contrib.auth.models import auth
+from django.contrib.auth.models import auth, User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 
@@ -140,3 +140,13 @@ def profile_management(request):
     return render(request, 'profile/profile-management.html', context=context)
 
 
+# - Delete Account
+
+@login_required(login_url='my-login')
+def delete_account(request):
+
+    if request.method == 'POST':
+        deleteUser = User.objects.get(username=request.user)
+        deleteUser.delete()
+        return redirect('')
+    return render(request, 'profile/delete-account.html')
