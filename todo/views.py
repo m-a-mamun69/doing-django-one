@@ -7,6 +7,7 @@ from django.contrib.auth.models import auth, User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 
+from django.contrib import messages
 # Create your views here.
 
 def home(request):
@@ -22,7 +23,8 @@ def Register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('dashboard')
+            messages.success(request, "User registration was successful!")
+            return redirect('my-login')
 
     context = {'form':form}
     return render(request, "register.html", context=context)

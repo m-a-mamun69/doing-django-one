@@ -30,7 +30,13 @@
 	{{form.password|as_crispy_field}}
 	<br>
 	<input class="btn btn-primary navbar-btn" type="submit" value="Login">
-	<br><br>
+	<br>
+	{% for message in messages %}
+		{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+			<p class="text-center text-success">{{message}}</p>
+		{% endif %}
+	{% endfor %}
+	<br>
 	<p>Don't, have an account? &nbsp; <a href="{% url 'register' %}"> Register</a></p>
 	</form>
 	</div>
