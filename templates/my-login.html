@@ -11,6 +11,7 @@
 
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 {% include 'pre-base.html' %}
@@ -29,11 +30,15 @@
 	
 	{{form.password|as_crispy_field}}
 	<br>
-	<input class="btn btn-primary navbar-btn" type="submit" value="Login">
+	<!-- <input class="btn btn-primary navbar-btn" type="submit" value="Login"> -->
+
+	<button class="btn btn-primary" type="submit"> <i class="fa fa-key" aria-hidden="true"></i> &nbsp; Login</button>
 	<br>
 	{% for message in messages %}
 		{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-			<p class="text-center text-success">{{message}}</p>
+			<p class="text-center text-success">
+				<i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{message}}
+			</p>
 		{% endif %}
 	{% endfor %}
 	<br>
