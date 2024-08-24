@@ -33,6 +33,21 @@
 
 </div>
 
+<br>
+<div class="container bg-white shadow-md p-5 form-layout" style="margin-top: 30px;">
+	<h3>Update Your Profile Picture</h3>
+	<hr>
+
+	<form method="POST" autocomplete="off" enctype="multipart/form-data">
+
+		{% csrf_token %}
+	
+		{{form_2}}
+		<br>
+		<input class="btn btn-primary navbar-btn" type="submit" value="Update Profile Pic">
+	</form>
+</div>
+
 <div class="container bg-white shadow-md p-5 form-layout" style="margin-top: 30px;">
 	<h3>Delete Account</h3>
 	<hr>

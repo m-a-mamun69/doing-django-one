@@ -29,11 +29,10 @@
 	{{form.username|as_crispy_field}}
 	
 	{{form.password|as_crispy_field}}
-	<br>
+	
 	<!-- <input class="btn btn-primary navbar-btn" type="submit" value="Login"> -->
 
 	<button class="btn btn-primary" type="submit"> <i class="fa fa-key" aria-hidden="true"></i> &nbsp; Login</button>
-	<br>
 	{% for message in messages %}
 		{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
 			<p class="text-center text-success">
@@ -41,7 +40,7 @@
 			</p>
 		{% endif %}
 	{% endfor %}
-	<br>
+	<br><br>
 	<p>Don't, have an account? &nbsp; <a href="{% url 'register' %}"> Register</a></p>
 	</form>
 	</div>
